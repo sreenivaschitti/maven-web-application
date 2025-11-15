@@ -65,6 +65,18 @@ pipeline
 
             }
 
+            stage('deploy')
+            {
+                steps()
+                {
+                    sshagent(['docker']) 
+                    {
+                        sh 'scp -o StrictHostKeyChecking=no ubuntu@54.226.218.27 docker rm -f mavenwebapplication || true'
+                        sh 'scp -o StrictHostKeyChecking=no ubuntu@54.226.218.27 docker run -d --name mavenwebapplication -p 8080:8080 sreenivaschitti/dockerpipeline:${buildNumber}'
+                        }
+                }
+            }
+
 
    }
 }
