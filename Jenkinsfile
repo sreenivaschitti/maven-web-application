@@ -58,7 +58,7 @@ pipeline
             stage('delete dockerimage')
             {
 
-                step()
+                steps()
                 {
                     sh 'docker rmi -f sreenivaschitti/dockerpipeline:${buildNumber}'
                 }
