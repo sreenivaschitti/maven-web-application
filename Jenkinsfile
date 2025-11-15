@@ -8,7 +8,7 @@ pipeline
     }
 
     environment{
-        buildNumber = ${BUILD_NUMBER}
+        buildNumber = "${BUILD_NUMBER}"
     }
    stages{
     
